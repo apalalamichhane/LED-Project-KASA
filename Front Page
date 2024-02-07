@@ -1,0 +1,43 @@
+from tkinter import *
+from PIL import Image,ImageTk
+
+root=Tk()
+root.geometry("1500x1500")
+
+header= Canvas(root, width= 1500, height= 300, bg="#001F3F")
+
+header.create_text(550, 140, text="KASA-\nThe Event Manager", fill="white", font=('Cochin',90))
+logo= (Image.open("KASA.png"))
+header.create_text(1200,40, text="kasaeventmanager@gmail.com.np", fill="white", font=('Times',30))
+header.create_text(1200,80, text="9810342323, 9825367231", fill="white", font=('Times',30))
+header.create_text(1200,120, text="Mahakavi Marg, Kathmandu", fill="white", font=('Times',30))
+
+
+resized_image= logo.resize((80,80))
+new_image= ImageTk.PhotoImage(resized_image)
+
+
+header.create_image(30,60, anchor=NW, image=new_image)
+
+header.pack()
+
+mid= Canvas(root, width= 1500, height= 1300, bg="white")
+
+teamwork= (Image.open("TeamWork.jpg"))
+
+
+resized_image= teamwork.resize((800,800))
+new_image= ImageTk.PhotoImage(resized_image)
+
+
+mid.create_image(650,300, anchor=W, image=new_image)
+
+mid.create_text(340,60,text="Welcome to Softwarica College Event Management App...",fill="#2B8BB4", font=("Courier",20))
+mid.create_text(360,190,text="Enhance your event experience with\nour perfect event management app.\nWith the best features and quality,\nyour event will be well-organized\nin our hands.",fill="#335CC3", font=("Courier New",30))
+
+mid.pack()
+
+btn=Button (text="Join Now", height=5, width=30)
+btn.place(x=300, y=700)
+
+root.mainloop()
